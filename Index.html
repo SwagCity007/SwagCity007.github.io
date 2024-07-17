@@ -61,13 +61,13 @@ description: Bookmark this to keep an eye on my project updates!
             max-width: 100%;
             border-radius: 8px;
         }
-        .about, .features, .pricing, .contact {
+        .about, .features, .pricing, .contact, .unicode-warning, .merge-queue, .codespaces {
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .about h2, .features h2, .pricing h2, .contact h2 {
+        .about h2, .features h2, .pricing h2, .contact h2, .unicode-warning h2, .merge-queue h2, .codespaces h2 {
             text-align: center;
         }
         footer {
@@ -87,6 +87,9 @@ description: Bookmark this to keep an eye on my project updates!
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
+        <a href="#unicode-warning">Unicode Warning</a>
+        <a href="#merge-queue">Merge Queue</a>
+        <a href="#codespaces">Codespaces</a>
     </nav>
     <div class="container">
         <section id="about" class="about section">
@@ -128,6 +131,24 @@ description: Bookmark this to keep an eye on my project updates!
             <p>Email: <a href="mailto:contact.juicebox1@gmail.com">contact.juicebox1@gmail.com</a></p>
             <p>Phone: <a href="tel:+16159870686">‪(615) 987-0686‬</a></p>
             <p>Address: 12653 Old Hickory Blvd, Cane Ridge, TN 37013</p>
+        </section>
+        <section id="unicode-warning" class="unicode-warning section">
+            <h2>Warning about Bidirectional Unicode Text</h2>
+            <p>A warning is now displayed when a file's contents include bidirectional Unicode text. Such text can be interpreted or compiled differently than it appears in a user interface. For example, hidden, bidirectional Unicode characters can be used to swap segments of text in a file. This can cause code to appear one way and be interpreted or compiled another way.</p>
+            <p>This security issue is the topic of the Common Vulnerabilities and Exposures (CVE) publication: CVE-2021-42574. If your use of bidirectional Unicode characters is intentional and not malformed, you can ignore the warning.</p>
+            <p>To review a file for which this warning is displayed, open it in an editor that will display the hidden, bidirectional Unicode characters, like Visual Studio Code which highlights the characters by default. Then, verify that the characters are necessary and not disguising text that will be interpreted or compiled differently than it appears.</p>
+            <p>For more information, refer to <a href="https://example.com">Trojan Source: Invisible Source Code Vulnerabilities</a>.</p>
+        </section>
+        <section id="merge-queue" class="merge-queue section">
+            <h2>Pull Request Merge Queue</h2>
+            <p>Pull Request Merge Queue is now available in limited beta. Maintaining high velocity and keeping your main branch green can be a challenge today. Many repositories try to do this by requiring all pull requests be up to date with the main branch before merging. This ensures the main branch is never updated to a commit that has not passed all required status checks, but forces developers to update (or rebase) their pull request branches multiple times and then wait for status checks to complete before trying to merge again. On some projects, status checks can take 30 or more minutes and if another pull request gets merged during this time, the process starts over (for everyone). This can have a significant impact on the overall velocity of the team and make it harder for developers to move onto their next task.</p>
+            <p>Merge Queue provides the benefits of requiring pull request branches to be up to date before merging, but without requiring developers to go through this process.</p>
+        </section>
+        <section id="codespaces" class="codespaces section">
+            <h2>New Codespaces Features</h2>
+            <p>GitHub Codespaces allows teams and organizations to spin-up developer environments directly from a browser or through Visual Studio Code, without the hassle of setting up a brand new environment tailored to a specific repository.</p>
+            <p>We've been hard at work since our general availability announcement in August making Codespaces the best way for you to develop software, which is why we're so happy to announce several new features at GitHub Universe 2021.</p>
+            <p>We know that many developers use the gh CLI to speed up or fully automate daily tasks, and we've received dozens of requests to add Codespaces support to the CLI. As of today, the gh codespace (or gh cs for those saving keystrokes) command now allows developers to manage their codespaces from the GitHub CLI. In addition to codespace creation, listing, and starting/stopping, users can forward ports, set port visibility, SSH into their codespaces, and copy files to/from their codespaces.</p>
         </section>
     </div>
     <footer>
