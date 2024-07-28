@@ -1,161 +1,107 @@
-theme: jekyll-theme-minimal
-title: Juicebox's homepage
-description: Bookmark this to keep an eye on my project updates!
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JuiceBox Power Solutions</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <title>JuiceBox - Power Bank Rental Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #444;
-            padding: 10px 0;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        .container {
-            padding: 20px;
-        }
-        .section {
-            margin: 50px 0;
-        }
-        .infographic {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .infographic div {
-            width: 30%;
-            padding: 20px;
-            background: #fff;
-            margin: 10px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .infographic img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        .about, .features, .pricing, .contact, .unicode-warning, .merge-queue, .codespaces {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .about h2, .features h2, .pricing h2, .contact h2, .unicode-warning h2, .merge-queue h2, .codespaces h2 {
-            text-align: center;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: #fff;
-        }
+        body, html { margin: 0; padding: 0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(2, 25, 64, 0.9); padding: 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: all 0.3s ease; }
+        .nav-logo { font-size: 1.5rem; font-weight: bold; color: #fff; display: flex; align-items: center; }
+        .nav-logo img { height: 40px; margin-right: 10px; }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-link { color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 20px; transition: all 0.3s ease; }
+        .nav-link:hover { background-color: rgba(56, 205, 175, 0.7); }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #feb45a, #38cdaf); color: white; text-align: center; position: relative; overflow: hidden; }
+        .hero-content { z-index: 1; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease 0.5s forwards; }
+        .cta-button { display: inline-block; padding: 1rem 2rem; background-color: #fff; color: #feb45a; text-decoration: none; border-radius: 30px; font-weight: bold; transition: all 0.3s ease; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease 1s forwards; }
+        .cta-button:hover { background-color: rgba(255, 182, 88, 0.7); transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+        .section { padding: 4rem 0; }
+        .section-title { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .card { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 2rem; transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .nav { flex-direction: column; } .nav-links { margin-top: 1rem; } .hero h1 { font-size: 2rem; } .hero p { font-size: 1rem; } .section-title { font-size: 2rem; } }
     </style>
 </head>
 <body>
-    <header>
-        <h1>JuiceBox Power Solutions</h1>
-    </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-        <a href="#unicode-warning">Unicode Warning</a>
-        <a href="#merge-queue">Merge Queue</a>
-        <a href="#codespaces">Codespaces</a>
+    <nav class="nav">
+        <div class="nav-logo"><img src="path_to_your_logo_image" alt="">JuiceBox Rentals</div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#how-it-works" class="nav-link">How It Works</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
     </nav>
-    <div class="container">
-        <section id="about" class="about section">
-            <h2>About JuiceBox</h2>
-            <p>JuiceBox offers easily accessible power bank rental stations at high-traffic locations such as malls, airports, and events, ensuring users can charge their devices anytime, anywhere.</p>
-        </section>
-        <section id="features" class="features section">
-            <h2>Our Features</h2>
-            <div class="infographic">
-                <div class="wow animate__animated animate__fadeInLeft">
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Out of Juice? Rent a Boost!</h1>
+            <p>Rent a power bank anytime, anywhere with JuiceBox</p>
+            <a href="#how-it-works" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p><strong>Our Mission:</strong> At JuiceBox Power Solutions LLC, our mission is to eliminate the anxiety of a low battery and empower people to stay connected, productive, and engaged. We provide reliable and convenient power bank rental stations so users can live in the moment without worrying about their devices running out of power.</p>
+            <p><strong>Our Goals:</strong></p>
+            <ul>
+                <li>Enhance Connectivity: Ensure people stay connected at all times by placing power bank rental stations in high-traffic areas such as malls, gyms, campuses, and event venues.</li>
+                <li>Reduce Low Battery Anxiety: Alleviate stress and inconvenience from low battery levels by offering quick and easy access to power banks, allowing users to charge their devices on the go.</li>
+                <li>Promote Sustainable Living: Encourage the use of shared resources to minimize environmental impact by providing reusable power banks to reduce the need for multiple personal chargers.</li>
+                <li>Support Diverse Communities: Make our service accessible to a wide range of users by offering discounted rates for students, military personnel, senior citizens, and first responders.</li>
+                <li>Drive Innovation: Continuously improve our technology and services by investing in research and development, incorporating user feedback, and staying ahead of industry trends.</li>
+            </ul>
+            <p><strong>What We Want to Achieve:</strong> User Satisfaction, Market Expansion, Community Engagement, Environmental Responsibility, Financial Growth.</p>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="section">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p>Introducing the Power Bank Lending Station:</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Convenient</h3>
+                    <p>Easily accessible stations where users can rent and return power banks.</p>
+                </div>
+                <div class="card">
                     <h3>User-Friendly App</h3>
-                    <p>The JuiceBox app allows users to quickly find, rent, and return power banks with a simple and intuitive interface, enhancing user experience and convenience.</p>
-                    <img src="images/app.png" alt="User-Friendly App">
+                    <p>A simple app that allows users to find, rent, and return power banks effortlessly.</p>
                 </div>
-                <div class="wow animate__animated animate__fadeInUp">
-                    <h3>Fast and Reliable Charging</h3>
-                    <p>Our power banks support fast charging technology, ensuring minimal downtime and keeping users connected and productive on the go.</p>
-                    <img src="images/charging.png" alt="Fast and Reliable Charging">
-                </div>
-                <div class="wow animate__animated animate__fadeInRight">
-                    <h3>Affordable Rental Options</h3>
-                    <p>JuiceBox provides cost-effective rental plans, making it more affordable for users compared to purchasing high-quality power banks.</p>
-                    <img src="images/rental.png" alt="Affordable Rental Options">
+                <div class="card">
+                    <h3>Quick Charging</h3>
+                    <p>The 65W rapid recharge via the USB-C port enables the power bank to be fully recharged in just 45 minutes.</p>
                 </div>
             </div>
-        </section>
-        <section id="pricing" class="pricing section">
-            <h2>Pricing Plans</h2>
-            <p>We offer flexible rental options to meet your needs. Choose a plan that suits you best:</p>
-            <ul>
-                <li>Hourly Rental: $1 per hour</li>
-                <li>Daily Rental: $5 per day</li>
-                <li>Monthly Subscription: $15 per month</li>
-            </ul>
-        </section>
-        <section id="contact" class="contact section">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or need support, feel free to contact us:</p>
-            <p>Email: <a href="mailto:contact.juicebox1@gmail.com">contact.juicebox1@gmail.com</a></p>
-            <p>Phone: <a href="tel:+16159870686">‪(615) 987-0686‬</a></p>
-            <p>Address: 12653 Old Hickory Blvd, Cane Ridge, TN 37013</p>
-        </section>
-        <section id="unicode-warning" class="unicode-warning section">
-            <h2>Warning about Bidirectional Unicode Text</h2>
-            <p>A warning is now displayed when a file's contents include bidirectional Unicode text. Such text can be interpreted or compiled differently than it appears in a user interface. For example, hidden, bidirectional Unicode characters can be used to swap segments of text in a file. This can cause code to appear one way and be interpreted or compiled another way.</p>
-            <p>This security issue is the topic of the Common Vulnerabilities and Exposures (CVE) publication: CVE-2021-42574. If your use of bidirectional Unicode characters is intentional and not malformed, you can ignore the warning.</p>
-            <p>To review a file for which this warning is displayed, open it in an editor that will display the hidden, bidirectional Unicode characters, like Visual Studio Code which highlights the characters by default. Then, verify that the characters are necessary and not disguising text that will be interpreted or compiled differently than it appears.</p>
-            <p>For more information, refer to <a href="https://example.com">Trojan Source: Invisible Source Code Vulnerabilities</a>.</p>
-        </section>
-        <section id="merge-queue" class="merge-queue section">
-            <h2>Pull Request Merge Queue</h2>
-            <p>Pull Request Merge Queue is now available in limited beta. Maintaining high velocity and keeping your main branch green can be a challenge today. Many repositories try to do this by requiring all pull requests be up to date with the main branch before merging. This ensures the main branch is never updated to a commit that has not passed all required status checks, but forces developers to update (or rebase) their pull request branches multiple times and then wait for status checks to complete before trying to merge again. On some projects, status checks can take 30 or more minutes and if another pull request gets merged during this time, the process starts over (for everyone). This can have a significant impact on the overall velocity of the team and make it harder for developers to move onto their next task.</p>
-            <p>Merge Queue provides the benefits of requiring pull request branches to be up to date before merging, but without requiring developers to go through this process.</p>
-        </section>
-        <section id="codespaces" class="codespaces section">
-            <h2>New Codespaces Features</h2>
-            <p>GitHub Codespaces allows teams and organizations to spin-up developer environments directly from a browser or through Visual Studio Code, without the hassle of setting up a brand new environment tailored to a specific repository.</p>
-            <p>We've been hard at work since our general availability announcement in August making Codespaces the best way for you to develop software, which is why we're so happy to announce several new features at GitHub Universe 2021.</p>
-            <p>We know that many developers use the gh CLI to speed up or fully automate daily tasks, and we've received dozens of requests to add Codespaces support to the CLI. As of today, the gh codespace (or gh cs for those saving keystrokes) command now allows developers to manage their codespaces from the GitHub CLI. In addition to codespace creation, listing, and starting/stopping, users can forward ports, set port visibility, SSH into their codespaces, and copy files to/from their codespaces.</p>
-        </section>
-    </div>
-    <footer>
-        &copy; 2024 JuiceBox Power Solutions LLC. All rights reserved.
-    </footer>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <div class="container">
+            <h2 class="section-title">Pricing</h2>
+            <p>We offer competitive pricing for our power bank rental services, with discounts available for students, military personnel, senior citizens, and first responders.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p>Email: contact.juicebox1@gmail.com</p>
+            <p>Nashville, TN</p>
+        </div>
+    </section>
+
     <script>
-        new WOW().init();
+        // Add any necessary JavaScript for animations and interactivity
     </script>
 </body>
 </html>
